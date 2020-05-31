@@ -14,40 +14,16 @@
     margin: 0;
     overflow: hidden;   
 }
-
-.formulaire .logo img {
-    position: relative;
-    height: 150px;
-}
-.inscription{
-   position: relative;
-    top: -20px;
-}
 .btn-warning {
     background: linear-gradient(180deg, #EB5757 0%, #F2C94C 100%);
-    border-radius: 5px;
     color: #F2F2F2;
 }
-.inscription .avatar, .inscription .compte, .upload_avatar {
+.inscription .avatar, .upload_avatar {
     background: linear-gradient(180deg, #EB5757 0%, #F2C94C 100%);
     font-size: 12px;
-    border-radius: 5px;
     color: #F2F2F2;
     padding: 6px;
     width: 30%;
-}
-.inscription .compte{
-    float: right;
-    position: relative;
-    top: -30px;
-    padding: 10px;
-}
-.form_login{
-    margin: 0 auto;
-}
-.form_login .form-control {
-    background: #E0E0E0;
-    border-radius: 5px;
 }
 .form_login .form-group input:focus {
     outline: 0;
@@ -60,13 +36,6 @@
     position: relative;
     top: -30px;
 }
-.form_login a{
-    color: gray;
-}
-.btn1 {
-    position: relative;
-    overflow: hidden;
-}
 .btn1 input[type=file] {
     left: 0;
     top: 0;
@@ -74,64 +43,31 @@
     position: absolute;
     font-size: 30px;
 }
-.av, .formulaire .logo{
-    position: absolute;
-    margin-top: -150px;
-    margin-left: 70px;
-    width: 200px;
-    height: 200px;
-}
-.av_ins{
-    position: absolute;
-    margin-top: -310px;
-    margin-left: -200px;
-    width: 200px;
-    height: 200px;
-}
-.av_ins h4{
-    margin-left: 20%;
-    color: gray;
-}
-.avatar_joueur {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: solid 1px black;
-}
-.upload_avatar{
-    border: none;
-}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
    .av_ins {
-    position: absolute;
-    margin-top: -570px;
+    margin-top: -180px;
     margin-left: 25%;
-    width: 200px;
-    height: 200px;
    }
-   .inscription{
-    position: relative;
-     top: 100px;
- }
  .av_ins h4{
      display: none;
  }
   }
+
   /* vlidation */
-  .form-control.error input{
+  .form-group.error input{
     border-color: #e74c3C;
 }
-.form-control.success input{
+.form-group.success input{
     border-color: #2ecc71;
 }
-.form-control small{
+.form-group small{
     color: var(--error-color);
     position: relative;
     bottom: 0;
     left: 0;
     visibility: hidden;
 }
-.form-control.error small{
+.form-group.error small{
     visibility: visible;
 }

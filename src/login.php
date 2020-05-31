@@ -1,15 +1,23 @@
+<?php
+if (isset($_POST['connexion'])) {
+    header('Location: index.php?page=./src/database/connexion');
+}
+
+
+?>
+
 
 <div class="formulaire">
     <div class="container">
         <div class="row">
-        <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2 logo">
-                <img src="./asset/img/logo-QuizzSA.png" class="circle mx-auto d-block avatar_joueur" alt="">
+        <div class="col-xs-4 col-sm-2 col-md col-lg">
+                <img src="./asset/img/logo-QuizzSA.png" class="mx-auto d-block postion-relative h-75 border border-dark rounded-circle w-25" alt="">
         </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-sm-3 col-md-2 col-lg">
+            <div class="col-xs-4 col-sm-2 col-md col-lg">
             <form class="form_login" id="form" action="" method="post">
-                <h1 class="title text-justify text-nowrap">Le plaisir de jouer</h1>
+                <h1 class="title text-justify text-nowrap pt-">Le plaisir de jouer</h1>
                 <div class="form-group">
                     <input class="form-control" type="text" name="login" id="login" placeholder="Login">
                     <svg class="bi bi-person" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -24,10 +32,11 @@
                     </svg>
                     <small>Validation Error</small>
                 </div>
-                <button class="btn btn-warning">Connexion</button>
-                <a href="index.php?page=./src/inscription">S'inscrire pour jouer</a>
+                <button type="submit" name="connexion" class="btn btn-warning">Connexion</button>
+                <a class="text-secondary" href="index.php?page=./src/inscription">S'inscrire pour jouer</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script src="js/login.js"></script>

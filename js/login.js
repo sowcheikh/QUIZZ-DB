@@ -1,9 +1,7 @@
 // GET DOM elements
 const form = document.getElementById('form');
-const username = document.getElementById('nom');
 const login = document.getElementById('login');
 const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
 
 
 // Functions
@@ -45,21 +43,26 @@ function checkLegth(input, min, max) {
     }
 }
 
-function checkPasswordsMatch(input1, input2) {
-    if (input1.value !== input2.value) {
-        showError(input2, 'Password do not match !')
-    }
-}
-
 
 //Events
 form.addEventListener('submit', (e)=>{
-    e.preventDefault();
+    const inputs = document.getElementsByTagName("input");
+    var error = false;
     // check if fields are not empty
-    checkRequired([username, login, password, password2 ])
+    checkRequired([login, password ])
     // check if fields are correct
-    checkLegth(username, 3, 15);
+    checkLegth(login, 3, 15);
     checkLegth(password, 6, 30);
-    // check if password is match
-    checkPasswordsMatch(password, password2)
+    for (input of inputs) {
+       
+            if (!input.value) {
+                error = true;
+            }
+        }
+
+    if (error) {
+        e.preventDefault();
+        return false;
+    }
+    
 })
