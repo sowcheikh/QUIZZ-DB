@@ -54,7 +54,8 @@ function checkPasswordsMatch(input1, input2) {
 
 //Events
 form.addEventListener('submit', (e)=>{
-    e.preventDefault();
+    const inputs = document.getElementsByTagName("input");
+    var error = false;
     // check if fields are not empty
     checkRequired([username, login, password, password2 ])
     // check if fields are correct
@@ -62,4 +63,24 @@ form.addEventListener('submit', (e)=>{
     checkLegth(password, 6, 30);
     // check if password is match
     checkPasswordsMatch(password, password2)
+
+    for (input of inputs) {
+       
+        if (!input.value) {
+            error = true;
+        }
+    }
+
+if (error) {
+    e.preventDefault();
+    return false;
+}
 })
+
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src);
+    }
+};

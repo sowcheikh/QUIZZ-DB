@@ -14,7 +14,7 @@
     margin: 0;
     overflow: hidden;   
 }
-.btn-warning {
+.form_login .btn-warning {
     background: linear-gradient(180deg, #EB5757 0%, #F2C94C 100%);
     color: #F2F2F2;
 }

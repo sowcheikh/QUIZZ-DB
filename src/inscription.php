@@ -1,3 +1,10 @@
+<?php
+if (isset($_POST['compte'])) {
+    var_dump($_POST);
+    header('Location: index.php?page=./src/joueur/joueur');
+}
+?>
+
 <div class="position-relative py-auto inscription">
     <div class="container">
         <div class="row">
@@ -32,18 +39,15 @@
                             <path fill-rule="evenodd" d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
                         </svg>
                     </div>
-                    <div class="btn1">
-                            <input type="file" class="btn btn-warning avatar" value="Choisir un avatar">
-                            <!-- On limite le fichier à 100Ko -->
-                            <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+                    <div class="overflow-hidden position-relative btn1">
+                            <input type="file" class="btn btn-warning avatar" accept="image/*" name="photo" onchange="loadFile(event)" value="Choisir un avatar">
                             <button class="border-0 rounded upload_avatar">Choisir un avatar</button>
-                            <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
-                            <button type="submit" class="btn btn-warning float-right p-1 position-relative">Créer un compte</button>
+                            <button type="submit" name="compte" class="btn btn-warning float-right p-1 position-relative">Créer un compte</button>
                     </div>
                 </form>
             </div>
             <div class="col-xs-4 col-sm-2 col-md col-lg position-absolute h-50 w-50 av_ins">
-        <img src="./asset/img/avatar.png" id="output" class="border border-dark rounded-circle h-100n w-100">
+        <img src="" id="output" class="border border-dark rounded-circle h-75 w-75">
         <h4  class="text-title text-center mr-4">AVATAR</h4>
     </div>
         </div>

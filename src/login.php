@@ -1,12 +1,8 @@
 <?php
 if (isset($_POST['connexion'])) {
-    header('Location: index.php?page=./src/database/connexion');
+    header('Location: index.php?page=./src/admin/admin');
 }
-
-
 ?>
-
-
 <div class="formulaire">
     <div class="container">
         <div class="row">
