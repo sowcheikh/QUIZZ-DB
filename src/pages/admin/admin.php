@@ -1,7 +1,7 @@
 <div class="container bg-light border rounded" style="height: 35rem; width: 80rem;">
     <div class="row" style="height: 15%;">
         <div class="col-6 col-xs-2 col-sm-3 col-md-3 col-lg-1">
-            <img src="./asset/img/logo-QuizzSA.png" class="postion-relative" style="height: 10%;" alt="">
+            <img src="./public/img/logo-QuizzSA.png" class="postion-relative" style="height: 10%;" alt="">
         </div>
         <div class="col-9 col-xs-3 col-sm-3 col-md-6 col-lg-9">
             <h4 class="title text-center text-nowrap mt-3">Créer et Paramétrer votre Quizz</h4>
@@ -21,7 +21,7 @@
     <div class="row" style="height: 65%;">
         <div class="col-4 bg-light border rounded">
             <div class="row">
-                <div class="col-3"><img src="./asset/img/avatar.png" class="img-circle" alt="Cinque Terre" width="100" height="100"></div>
+                <div class="col-3"><img src="./public/img/avatar.png" class="img-circle" alt="Cinque Terre" width="100" height="100"></div>
                 <div class="col-9"> 
                 <h5 class="title text-secondary ml-4 mt-3">Admin</h5>
                 <h5 class="title text-secondary ml-5 mt-3">Admin</h5>

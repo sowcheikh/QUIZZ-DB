@@ -12,7 +12,7 @@
     height: 100vh;
     padding: 0;
     margin: 0;
-    overflow: hidden;   
+    overflow: hidden   
 }
 .form_login .btn-warning {
     background: linear-gradient(180deg, #EB5757 0%, #F2C94C 100%);
@@ -49,8 +49,21 @@
     margin-top: -180px;
     margin-left: 25%;
    }
+   .av_ins img{
+       width: 100px;
+       height: 100px;
+       margin-left: 38%;
+   }
+   .upload_avatar{
+    background: linear-gradient(180deg, #219653 0%, #51BFD0 100%);
+       width: 100%;
+   }
  .av_ins h4{
      display: none;
+ }
+ .milieu {
+     width: 100%;
+     margin: 0 auto;
  }
   }
 

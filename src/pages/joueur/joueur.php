@@ -1,7 +1,7 @@
 <div class="container bg-light border rounded" style="height: 35rem; width: 80rem;">
     <div class="row h-25">
         <div class="col-6 col-xs-2 col-sm-3 col-md-3 col-lg-1">
-            <img src="./asset/img/logo-QuizzSA.png" class="postion-relative mt-2" style="height: 10%;" alt="">
+            <img src="./public/img/logo-QuizzSA.png" class="postion-relative mt-2" style="height: 10%;" alt="">
         </div>
         <div class="col-9 col-xs-3 col-sm-3 col-md-6 col-lg-9">
             <h4 class="title text-center text-nowrap mt-3">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ </h4>
@@ -11,11 +11,11 @@
     <div class="row" style="height: 70%;">
         <div class="col-8 bg-light border rounded overflow-auto">
         <div class="row">
-                <div class="col-3"><img src="./asset/img/avatar.png" class="img-circle" alt="Cinque Terre" width="100" height="100">
+                <div class="col-3"><img src="./public/img/avatar.png" class="img-circle" alt="avatar" width="100" height="100">
                 </div>
                 <div class="col-9">
                 <h5 class="title text-secondary text-right">Cheikh Sow</h5>
-                <button class="btn btn-danger float-right btn-sm mt-3" type="submit">Déconnexion</button>
+                <button class="btn btn-danger float-right btn-sm mt-3" type="submit" name="deconnexion">Déconnexion</button>
                 </div>
             </div>
             <div class="row shadow-sm mb-3 bg-white rounded" style="height: 20%;">

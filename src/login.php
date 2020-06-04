@@ -1,13 +1,33 @@
 <?php
 if (isset($_POST['connexion'])) {
-    header('Location: index.php?page=./src/admin/admin');
+    extract($_POST);
+    if (!empty($login) && !empty($password)) {
+
+                $c = $bdd->prepare("SELECT * FROM joueur WHERE login= :login");
+                $c->execute([
+                    'login' => $login
+                ]);
+                $result = $c->fetch();
+
+                 if ($result == true) {
+                //le compte existe bien
+                if ($password == $result['password']) {
+                    header('Location: index.php?page=./src/pages/admin/admin');
+                } else {
+                    echo 'le mot de passe n\'est pas correcte!!';
+                }
+                } else {
+                    echo 'le login ' . $login. ' n\'existe pas!!';
+                }
+
+    }
 }
 ?>
 <div class="formulaire">
     <div class="container">
         <div class="row">
         <div class="col-xs-4 col-sm-2 col-md col-lg">
-                <img src="./asset/img/logo-QuizzSA.png" class="mx-auto d-block postion-relative h-75 border border-dark rounded-circle w-25" alt="">
+                <img src="./public/img/logo-QuizzSA.png" class="mx-auto d-block postion-relative h-75 border border-dark rounded-circle w-25" alt="">
         </div>
         </div>
         <div class="row">
@@ -35,4 +55,4 @@ if (isset($_POST['connexion'])) {
         </div>
     </div>
 </div>
-<script src="js/login.js"></script>
+<script src="public/js/login.js"></script>
