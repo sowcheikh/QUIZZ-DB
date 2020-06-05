@@ -3,15 +3,17 @@ if (isset($_POST['connexion'])) {
     extract($_POST);
     if (!empty($login) && !empty($password)) {
 
-                $c = $bdd->prepare("SELECT * FROM joueur WHERE login= :login");
-                $c->execute([
+                $data = $bdd->prepare("SELECT * FROM joueur WHERE login= :login");
+                $data->execute([
                     'login' => $login
                 ]);
-                $result = $c->fetch();
+                $result = $data->fetch();
 
                  if ($result == true) {
                 //le compte existe bien
                 if ($password == $result['password']) {
+                    $_SESSION['loggedIN'] = '1';
+                    $_SESSION['login'] = $login;
                     header('Location: index.php?page=./src/pages/admin/admin');
                 } else {
                     echo 'le mot de passe n\'est pas correcte!!';
@@ -48,11 +50,11 @@ if (isset($_POST['connexion'])) {
                     </svg>
                     <small>Validation Error</small>
                 </div>
-                <button type="submit" name="connexion" class="btn btn-warning">Connexion</button>
+                <button type="submit" name="connexion" id="connexion" class="btn btn-warning">Connexion</button>
                 <a class="text-secondary" href="index.php?page=./src/inscription">S'inscrire pour jouer</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script src="public/js/login.js"></script>
+<script src="public/js/connexion.js"></script>

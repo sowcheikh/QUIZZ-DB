@@ -1,7 +1,7 @@
 <?php
 try
 {
-        $bdd = new PDO('mysql:host=mysql-quizzsadevdoc.alwaysdata.net;dbname=quizzsadevdoc_cheikh;charset=utf8', '207855', 'Dagana5212?');
+        $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
 }
 catch (Exception $e)
 {

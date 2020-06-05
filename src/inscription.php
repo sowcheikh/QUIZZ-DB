@@ -5,7 +5,7 @@ if (isset($_POST['compte'])) {
     // var_dump($_POST);
     extract($_POST);
     if (!empty($nom) && !empty($login) && !empty($password) && !empty($password2)) {
-        if ($password == $password2) {
+        if ($password === $password2) {
             $options = [
                 'cost' => 12,
             ];
@@ -24,17 +24,19 @@ if (isset($_POST['compte'])) {
                         'login' => $login,
                         'password' => $password
                     ]);
-                    echo 'le user est bien crée!!';
+                    header('Location: index.php?page=./src/pages/joueur/joueur');
+
                 } else {
                     echo 'le login existe déja!!!';
                 }
+        } else {
+           echo 'les mots de passes ne sont pas identiques';
         }
 
  
     } else {
         echo'remplir les champs!!';
     }
-    header('Location: index.php?page=./src/pages/joueur/joueur');
 }
 ?>
 
