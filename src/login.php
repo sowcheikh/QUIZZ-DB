@@ -1,9 +1,14 @@
 <?php
+if (isset($_SESSION['loggedIN'])) {
+    header('Location: index.php?page=./src/pages/admin/admin');
+}
+
 if (isset($_POST['connexion'])) {
     extract($_POST);
     if (!empty($login) && !empty($password)) {
-
-                $data = $bdd->prepare("SELECT * FROM joueur WHERE login= :login");
+    }
+        global $bdd;
+                $data = $bdd->prepare("SELECT * FROM users WHERE login= :login");
                 $data->execute([
                     'login' => $login
                 ]);
@@ -12,9 +17,9 @@ if (isset($_POST['connexion'])) {
                  if ($result == true) {
                 //le compte existe bien
                 if ($password == $result['password']) {
+                    //
                     $_SESSION['loggedIN'] = '1';
                     $_SESSION['login'] = $login;
-                    header('Location: index.php?page=./src/pages/admin/admin');
                 } else {
                     echo 'le mot de passe n\'est pas correcte!!';
                 }
@@ -23,7 +28,7 @@ if (isset($_POST['connexion'])) {
                 }
 
     }
-}
+
 ?>
 <div class="formulaire">
     <div class="container">

@@ -46,5 +46,11 @@
         </div>
                 </form>
             </div>
+            <div class="col-4 col-xs col-sm-2 col-md-4 col-lg">
+            <img src="./public/img/avatar.png" id="output" class="rounded-circle border border-info" width="130" height="130">
+            <h4  class="text-title ml-4">AVATAR</h4>
+            </div>
         </div>
     </div>
+
+    <script src="public/js/file.js"></script>

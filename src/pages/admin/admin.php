@@ -2,6 +2,8 @@
 if (!isset($_SESSION['loggedIN'])) {
     header('Location: index.php');
 }
+global $bdd;
+
 ?>
 <div class="container bg-light border rounded" style="height: 35rem; width: 80rem;">
     <div class="row" style="height: 15%;">
@@ -15,7 +17,7 @@ if (!isset($_SESSION['loggedIN'])) {
     <div class="row" style="height: 85%;">
         <div class="col-4 bg-light border rounded h-75">
             <div class="row">
-                <div class="col-3"><img src="./public/img/avatar.png" class="img-circle" alt="Cinque Terre" width="100" height="100"></div>
+                <div class="col-3"><img src="./public/img/ch.JPG" class="img-circle" alt="Cinque Terre" width="100" height="100"></div>
                 <div class="col-9"> 
                 <h5 class="title text-secondary ml-4 mt-3"><?=$_SESSION['login']?></h5>
             </div>

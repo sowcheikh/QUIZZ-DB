@@ -84,3 +84,8 @@
 .form-group.error small{
     visibility: visible;
 }
+.form_error { 
+    display: inline-block; 
+    color: #FF4F4F;
+    padding: 10px; 
+}

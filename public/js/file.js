@@ -84,3 +84,23 @@ var loadFile = function(event) {
         URL.revokeObjectURL(output.src);
     }
 };
+
+
+//ajax inscription
+$(document).ready(function(){
+    $("#compte").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "index.php?page=./src/pages/inscription",
+            data: $('form').serialize(),
+            dataType: "text",
+            success: function (message) {
+                console.log(message);
+                if (message.indexOf('success') >=0) {
+                    window.location = 'index.php'
+                }
+                
+            }
+        })
+    })
+    })

@@ -2,29 +2,38 @@
 $ok='';
 global $bdd;
 if (isset($_POST['compte'])) {
-    // var_dump($_POST);
+    $photo = $_FILES['photo']['name'];
     extract($_POST);
-    if (!empty($nom) && !empty($login) && !empty($password) && !empty($password2)) {
+    if (!empty($name) && !empty($login) && !empty($password) && !empty($password2)) {
         if ($password === $password2) {
             $options = [
                 'cost' => 12,
             ];
                 $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
-
-                $c = $bdd->prepare("SELECT login FROM joueur WHERE login= :login");
+                    $dossier = 'public/img/';
+                    $fichier = basename($_FILES['photo']['name']);
+                    move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier);
+                
+                $c = $bdd->prepare("SELECT login FROM users WHERE login= :login");
                 $c->execute([
                     'login' => $login
                 ]);
                 $result = $c->rowCount();
 
                 if ($result == 0) {
-                    $q = $bdd->prepare("INSERT INTO joueur(nom,login,password) VALUES(:nom,:login,:password)");
+                    $q = $bdd->prepare("INSERT INTO users(name,login,password,profile,score,statut,photo) VALUES(:name,:login,:password,:profile,:score,:statut,:photo)");
                     $q->execute([
-                        'nom' => $nom,
+                        'name' => $name,
                         'login' => $login,
-                        'password' => $password
+                        'password' => $password,
+                        'profile' => 'joueur',
+                        'score' => '',
+                        'statut' => 'actif',
+                        'photo' => $photo
+
                     ]);
-                    header('Location: index.php?page=./src/pages/joueur/joueur');
+                    echo 'success';
+                    header('Location: index.php');
 
                 } else {
                     echo 'le login existe déja!!!';
@@ -44,15 +53,15 @@ if (isset($_POST['compte'])) {
     <div class="container">
         <div class="row">
         <div class="col-4 col-xs col-sm-2 col-md-4 col-lg mt-5 av_ins">
-        <img src="" id="output" class="rounded-circle border border-info" width="130" height="130">
+        <img src="./public/img/avatar.png" id="output" class="rounded-circle border border-info" width="130" height="130">
         <h4  class="text-title ml-4">AVATAR</h4>
         <h4><?=$ok?></h4>
         </div>
             <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 milieu">
-                <form class="form_login" id="form" action="" method="post">
+                <form class="form_login" id="form" action="" method="post" enctype="multipart/form-data">
                     <h6 class="text-title">S’inscrire pour tester votre niveau de culture générale</h6>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-lg bg-grey lighten-2" name="nom" id="nom" placeholder="Entrer votre nom complet">
+                        <input type="text" class="form-control form-control-lg bg-grey lighten-2" name="name" id="nom" placeholder="Entrer votre nom complet">
                         <small>Validation Error</small>
                         <svg class="bi bi-person" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -84,7 +93,7 @@ if (isset($_POST['compte'])) {
             <div class="overflow-hidden position-relative btn1">
                             <input type="file" class="btn btn-warning" accept="image/*" name="photo" onchange="loadFile(event)" value="Choisir un avatar">
                             <button class="btn border-0 rounded upload_avatar">Choisir un avatar</button>
-                            <button type="submit" name="compte" class="btn btn-warning position-relative btn-block mt-1">Créer un compte</button>
+                            <button type="submit" name="compte" id="compte" class="btn btn-warning position-relative btn-block mt-1">Créer un compte</button>
                     </div>
             </div>
         </div>

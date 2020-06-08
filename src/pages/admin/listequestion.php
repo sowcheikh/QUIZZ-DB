@@ -31,13 +31,13 @@
             </div>
             <h4>2. D’où vient le corona ?</h4>
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             <label class="form-check-label" for="exampleRadios1">
                 Chine
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             <label class="form-check-label" for="exampleRadios1">
                 Italie
             </label>
@@ -48,13 +48,13 @@
             </div>
             <h4>4. Les précurseurs de la révolution digitale ?</h4>
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             <label class="form-check-label" for="exampleRadios1">
                 GAFAM
             </label>
             </div>
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
             <label class="form-check-label" for="exampleRadios1">
                 CIA-FBI
             </label>

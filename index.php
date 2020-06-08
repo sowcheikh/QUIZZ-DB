@@ -15,6 +15,7 @@ session_start();
 <body>
 <div>
 <?php
+        require_once('db/connexion.php');
         require_once('data/data.php');
         if (isset($_GET['page'])) {
 

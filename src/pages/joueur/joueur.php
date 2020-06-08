@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-9">
                 <h5 class="title text-secondary text-right">Cheikh Sow</h5>
-                <button class="btn btn-danger float-right btn-sm mt-3" type="submit" name="deconnexion">Déconnexion</button>
+                <a href="index.php?page=./src/pages/logout" class="btn btn-danger mt-2 float-right">Déconnexion</a>
                 </div>
             </div>
             <div class="row shadow-sm mb-3 bg-white rounded" style="height: 20%;">
