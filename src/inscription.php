@@ -1,7 +1,7 @@
 <?php
 $ok='';
 global $bdd;
-if (isset($_POST['compte'])) {
+
     $photo = $_FILES['photo']['name'];
     extract($_POST);
     if (!empty($name) && !empty($login) && !empty($password) && !empty($password2)) {
@@ -46,7 +46,7 @@ if (isset($_POST['compte'])) {
     } else {
         echo'remplir les champs!!';
     }
-}
+
 ?>
 
 <div class="position-relative py-auto inscription">

@@ -2,7 +2,6 @@
 if (isset($_SESSION['loggedIN'])) {
     header('Location: index.php?page=./src/pages/admin/admin');
 }
-
 if (isset($_POST['connexion'])) {
     extract($_POST);
     if (!empty($login) && !empty($password)) {

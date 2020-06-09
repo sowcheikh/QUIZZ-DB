@@ -92,11 +92,16 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             url: "index.php?page=./src/pages/inscription",
-            data: $('form').serialize(),
+            data: {
+            username: $('#nom').val(),
+            login: $('#login').val(),
+            password: $('#password').val(),
+            password2: $('#password2').val()
+            },
             dataType: "text",
             success: function (message) {
-                console.log(message);
-                if (message.indexOf('success') >=0) {
+                console.log('message');
+                if (message === 'success') {
                     window.location = 'index.php'
                 }
                 
