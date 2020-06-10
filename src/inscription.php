@@ -2,49 +2,11 @@
 $ok='';
 global $bdd;
 
-    $photo = $_FILES['photo']['name'];
     extract($_POST);
     if (!empty($name) && !empty($login) && !empty($password) && !empty($password2)) {
-        if ($password === $password2) {
-            $options = [
-                'cost' => 12,
-            ];
-                $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
-                    $dossier = 'public/img/';
-                    $fichier = basename($_FILES['photo']['name']);
-                    move_uploaded_file($_FILES['photo']['tmp_name'], $dossier . $fichier);
-                
-                $c = $bdd->prepare("SELECT login FROM users WHERE login= :login");
-                $c->execute([
-                    'login' => $login
-                ]);
-                $result = $c->rowCount();
-
-                if ($result == 0) {
-                    $q = $bdd->prepare("INSERT INTO users(name,login,password,profile,score,statut,photo) VALUES(:name,:login,:password,:profile,:score,:statut,:photo)");
-                    $q->execute([
-                        'name' => $name,
-                        'login' => $login,
-                        'password' => $password,
-                        'profile' => 'joueur',
-                        'score' => '',
-                        'statut' => 'actif',
-                        'photo' => $photo
-
-                    ]);
-                    echo 'success';
-                    header('Location: index.php');
-
-                } else {
-                    echo 'le login existe déja!!!';
-                }
-        } else {
-           echo 'les mots de passes ne sont pas identiques';
-        }
-
+        getUserAdd($name, $login, $password, $password2, $photo);
+        
  
-    } else {
-        echo'remplir les champs!!';
     }
 
 ?>

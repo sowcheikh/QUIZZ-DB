@@ -77,3 +77,28 @@ var j = 1;
             return addIput();
         }  
     }
+
+    //ajax inscription
+$(document).ready(function(){
+    $("#compte").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "data/data.php",
+            data: {
+            username: $('#nom').val(),
+            login: $('#login').val(),
+            password: $('#password').val(),
+            password2: $('#password2').val(),
+            photo: $('#photo').val()
+            },
+            dataType: "text",
+            success: function (message) {
+                console.log('message');
+                if (message === 'success') {
+                    window.location = 'index.php?page=./src/pages/admin'
+                }
+                
+            }
+        })
+    })
+    })

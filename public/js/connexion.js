@@ -9,7 +9,7 @@
             } else {
                 $.ajax(
                     {
-                        url: 'index.php',
+                        url: 'data/data.php',
                         method: 'POST',
                         data: {
                             connexion: 1,
@@ -18,8 +18,8 @@
                         },
                         success: function (response) {
                             console.log(response);
-                            if (response.indexOf('success') >=0) {
-                                window.location = 'index.php?page=./src/pages/admin/admin'
+                            if (response === 'success') {
+                                window.location = 'index.php?page=./src/pages/admin'
                             }
                             
                         },

@@ -1,30 +1,13 @@
 <?php
 if (isset($_SESSION['loggedIN'])) {
-    header('Location: index.php?page=./src/pages/admin/admin');
+    header('Location: index.php?page=./src/pages/admin');
 }
 if (isset($_POST['connexion'])) {
     extract($_POST);
     if (!empty($login) && !empty($password)) {
+        getConnection($login, $password);
     }
-        global $bdd;
-                $data = $bdd->prepare("SELECT * FROM users WHERE login= :login");
-                $data->execute([
-                    'login' => $login
-                ]);
-                $result = $data->fetch();
-
-                 if ($result == true) {
-                //le compte existe bien
-                if ($password == $result['password']) {
-                    //
-                    $_SESSION['loggedIN'] = '1';
-                    $_SESSION['login'] = $login;
-                } else {
-                    echo 'le mot de passe n\'est pas correcte!!';
-                }
-                } else {
-                    echo 'le login ' . $login. ' n\'existe pas!!';
-                }
+               
 
     }
 
